@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: InstagramPagination::TextSeries
+  Class: InstagramPages::TextSeries
   
     &mdash; Documentation by YARD 0.9.12
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  pathId = "InstagramPagination::TextSeries";
+  pathId = "InstagramPages::TextSeries";
   relpath = '../';
 </script>
 
@@ -37,7 +37,7 @@
         <div id="menu">
   
     <a href="../_index.html">Index (T)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../InstagramPagination.html" title="InstagramPagination (module)">InstagramPagination</a></span></span>
+    <span class='title'><span class='object_link'><a href="../InstagramPages.html" title="InstagramPages (module)">InstagramPages</a></span></span>
      &raquo; 
     <span class="title">TextSeries</span>
   
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: InstagramPagination::TextSeries
+      <div id="content"><h1>Class: InstagramPages::TextSeries
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">InstagramPagination::TextSeries</li>
+            <li class="next">InstagramPages::TextSeries</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -94,7 +94,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>ig_pages.rb</dd>
+    <dd>instagram-pages.rb</dd>
   </dl>
   
 </div>
@@ -129,7 +129,7 @@ of text</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(body, byline, image_width, margin, font_size)  &#x21d2; TextSeries </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(body, middle_byline, end_byline, image_width, margin, font_family, font_size)  &#x21d2; TextSeries </a>
     
 
     
@@ -155,7 +155,7 @@ of text</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#paginate_text-instance_method" title="#paginate_text (instance method)">#<strong>paginate_text</strong>  &#x21d2; Array&lt;TextFrame&gt; </a>
+      <a href="#paginate-instance_method" title="#paginate (instance method)">#<strong>paginate</strong>  &#x21d2; Array&lt;TextFrame&gt; </a>
     
 
     
@@ -210,7 +210,7 @@ objects ready to generate.</p>
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(body, byline, image_width, margin, font_size)  &#x21d2; <tt><span class='object_link'><a href="" title="InstagramPagination::TextSeries (class)">TextSeries</a></span></tt> 
+    #<strong>initialize</strong>(body, middle_byline, end_byline, image_width, margin, font_family, font_size)  &#x21d2; <tt><span class='object_link'><a href="" title="InstagramPages::TextSeries (class)">TextSeries</a></span></tt> 
   
 
   
@@ -246,7 +246,7 @@ objects ready to generate.</p>
   
     <li>
       
-        <span class='name'>byline</span>
+        <span class='name'>middle_byline</span>
       
       
         <span class='type'>(<tt>String</tt>)</span>
@@ -255,7 +255,23 @@ objects ready to generate.</p>
       
         &mdash;
         <div class='inline'>
-<p>the byline at the very end of the series.</p>
+<p>the byline between images</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>end_byline</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the byline at the very end of the series</p>
 </div>
       
     </li>
@@ -301,24 +317,28 @@ objects ready to generate.</p>
       <pre class="lines">
 
 
-45
-46
-47
-48
 49
 50
 51
-52</pre>
+52
+53
+54
+55
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ig_pages.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'instagram-pages.rb', line 49</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_byline'>byline</span><span class='comma'>,</span> <span class='id identifier rubyid_image_width'>image_width</span><span class='comma'>,</span> <span class='id identifier rubyid_margin'>margin</span><span class='comma'>,</span> <span class='id identifier rubyid_font_size'>font_size</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_middle_byline'>middle_byline</span><span class='comma'>,</span> <span class='id identifier rubyid_end_byline'>end_byline</span><span class='comma'>,</span> <span class='id identifier rubyid_image_width'>image_width</span><span class='comma'>,</span> <span class='id identifier rubyid_margin'>margin</span><span class='comma'>,</span> <span class='id identifier rubyid_font_family'>font_family</span><span class='comma'>,</span> <span class='id identifier rubyid_font_size'>font_size</span><span class='rparen'>)</span>
     <span class='ivar'>@body</span> <span class='op'>=</span> <span class='id identifier rubyid_body'>body</span>
-    <span class='ivar'>@byline</span> <span class='op'>=</span> <span class='id identifier rubyid_byline'>byline</span>
+    <span class='ivar'>@middle_byline</span> <span class='op'>=</span> <span class='id identifier rubyid_middle_byline'>middle_byline</span>
+    <span class='ivar'>@end_byline</span> <span class='op'>=</span> <span class='id identifier rubyid_end_byline'>end_byline</span>
     <span class='ivar'>@image_width</span> <span class='op'>=</span> <span class='id identifier rubyid_image_width'>image_width</span>
     <span class='ivar'>@margin</span> <span class='op'>=</span> <span class='id identifier rubyid_margin'>margin</span>
     <span class='ivar'>@text_width</span> <span class='op'>=</span> <span class='id identifier rubyid_image_width'>image_width</span> <span class='op'>-</span> <span class='lparen'>(</span><span class='int'>2</span> <span class='op'>*</span> <span class='id identifier rubyid_margin'>margin</span><span class='rparen'>)</span>
+    <span class='ivar'>@font_family</span> <span class='op'>=</span> <span class='id identifier rubyid_font_family'>font_family</span>
     <span class='ivar'>@font_size</span> <span class='op'>=</span> <span class='id identifier rubyid_font_size'>font_size</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -334,9 +354,9 @@ objects ready to generate.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="paginate_text-instance_method">
+  <h3 class="signature first" id="paginate-instance_method">
   
-    #<strong>paginate_text</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="TextFrame.html" title="InstagramPagination::TextFrame (class)">TextFrame</a></span>&gt;</tt> 
+    #<strong>paginate</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="TextFrame.html" title="InstagramPages::TextFrame (class)">TextFrame</a></span>&gt;</tt> 
   
 
   
@@ -359,7 +379,7 @@ objects ready to generate.</p>
     <li>
       
       
-        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="TextFrame.html" title="InstagramPagination::TextFrame (class)">TextFrame</a></span>&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="TextFrame.html" title="InstagramPages::TextFrame (class)">TextFrame</a></span>&gt;</tt>)</span>
       
       
       
@@ -378,12 +398,6 @@ objects ready to generate.</p>
       <pre class="lines">
 
 
-78
-79
-80
-81
-82
-83
 84
 85
 86
@@ -410,12 +424,18 @@ objects ready to generate.</p>
 107
 108
 109
-110</pre>
+110
+111
+112
+113
+114
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ig_pages.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'instagram-pages.rb', line 84</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_paginate_text'>paginate_text</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_paginate'>paginate</span>
     <span class='id identifier rubyid_separator'>separator</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span>
     <span class='id identifier rubyid_current_chunk'>current_chunk</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
     <span class='id identifier rubyid_chunks'>chunks</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -439,13 +459,13 @@ objects ready to generate.</p>
                 <span class='kw'>end</span>
                 <span class='id identifier rubyid_current_chunk'>current_chunk</span> <span class='op'>+=</span> <span class='id identifier rubyid_word'>word</span>
             <span class='kw'>elsif</span> <span class='id identifier rubyid_needs_splitting_along'>needs_splitting_along</span> <span class='op'>==</span> <span class='symbol'>:height</span>
-                <span class='id identifier rubyid_chunks'>chunks</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="TextFrame.html" title="InstagramPagination::TextFrame (class)">TextFrame</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TextFrame.html#initialize-instance_method" title="InstagramPagination::TextFrame#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_current_chunk'>current_chunk</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(swipe left to cont.)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='ivar'>@image_width</span><span class='comma'>,</span> <span class='ivar'>@margin</span><span class='comma'>,</span> <span class='ivar'>@font_size</span><span class='rparen'>)</span>
+                <span class='id identifier rubyid_chunks'>chunks</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="TextFrame.html" title="InstagramPages::TextFrame (class)">TextFrame</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TextFrame.html#initialize-instance_method" title="InstagramPages::TextFrame#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_current_chunk'>current_chunk</span><span class='comma'>,</span> <span class='ivar'>@middle_byline</span><span class='comma'>,</span> <span class='ivar'>@image_width</span><span class='comma'>,</span> <span class='ivar'>@margin</span><span class='comma'>,</span> <span class='ivar'>@font_family</span><span class='comma'>,</span> <span class='ivar'>@font_size</span><span class='rparen'>)</span>
                 <span class='id identifier rubyid_current_chunk'>current_chunk</span> <span class='op'>=</span> <span class='id identifier rubyid_word'>word</span>
             <span class='kw'>end</span>
             <span class='id identifier rubyid_i'>i</span> <span class='op'>+=</span> <span class='int'>1</span>
         <span class='kw'>end</span>
     <span class='kw'>end</span>
-    <span class='id identifier rubyid_chunks'>chunks</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="TextFrame.html" title="InstagramPagination::TextFrame (class)">TextFrame</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TextFrame.html#initialize-instance_method" title="InstagramPagination::TextFrame#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_current_chunk'>current_chunk</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>- </span><span class='embexpr_beg'>#{</span><span class='ivar'>@byline</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='ivar'>@image_width</span><span class='comma'>,</span> <span class='ivar'>@margin</span><span class='comma'>,</span> <span class='ivar'>@font_size</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_chunks'>chunks</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="TextFrame.html" title="InstagramPages::TextFrame (class)">TextFrame</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TextFrame.html#initialize-instance_method" title="InstagramPages::TextFrame#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_current_chunk'>current_chunk</span><span class='comma'>,</span> <span class='ivar'>@end_byline</span><span class='comma'>,</span> <span class='ivar'>@image_width</span><span class='comma'>,</span> <span class='ivar'>@margin</span><span class='comma'>,</span> <span class='ivar'>@font_family</span><span class='comma'>,</span> <span class='ivar'>@font_size</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='id identifier rubyid_chunks'>chunks</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -534,12 +554,6 @@ split, or <code>false</code> if it does not.</p>
       <pre class="lines">
 
 
-58
-59
-60
-61
-62
-63
 64
 65
 66
@@ -550,10 +564,16 @@ split, or <code>false</code> if it does not.</p>
 71
 72
 73
-74</pre>
+74
+75
+76
+77
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ig_pages.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'instagram-pages.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_text_needs_splitting?'>text_needs_splitting?</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_width'>width</span><span class='comma'>,</span> <span class='id identifier rubyid_margin'>margin</span><span class='comma'>,</span> <span class='id identifier rubyid_pointsize'>pointsize</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_tmp_image'>tmp_image</span> <span class='op'>=</span> <span class='const'>Magick</span><span class='op'>::</span><span class='const'>Image</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_width'>width</span><span class='comma'>,</span> <span class='int'>500</span><span class='rparen'>)</span>
@@ -561,7 +581,7 @@ split, or <code>false</code> if it does not.</p>
     <span class='id identifier rubyid_drawing'>drawing</span><span class='period'>.</span><span class='id identifier rubyid_gravity'>gravity</span> <span class='op'>=</span> <span class='const'>Magick</span><span class='op'>::</span><span class='const'>WestGravity</span>
     <span class='id identifier rubyid_drawing'>drawing</span><span class='period'>.</span><span class='id identifier rubyid_pointsize'>pointsize</span> <span class='op'>=</span> <span class='id identifier rubyid_pointsize'>pointsize</span>
     <span class='id identifier rubyid_drawing'>drawing</span><span class='period'>.</span><span class='id identifier rubyid_fill'>fill</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#ffffff</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_drawing'>drawing</span><span class='period'>.</span><span class='id identifier rubyid_font_family'>font_family</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Times New Roman</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_drawing'>drawing</span><span class='period'>.</span><span class='id identifier rubyid_font_family'>font_family</span> <span class='op'>=</span> <span class='ivar'>@font_family</span>
     <span class='id identifier rubyid_drawing'>drawing</span><span class='period'>.</span><span class='id identifier rubyid_annotate'>annotate</span><span class='lparen'>(</span><span class='id identifier rubyid_tmp_image'>tmp_image</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id identifier rubyid_width'>width</span> <span class='op'>-</span> <span class='id identifier rubyid_margin'>margin</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id identifier rubyid_width'>width</span> <span class='op'>-</span> <span class='id identifier rubyid_margin'>margin</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_margin'>margin</span><span class='comma'>,</span> <span class='id identifier rubyid_margin'>margin</span><span class='comma'>,</span> <span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_metrics'>metrics</span> <span class='op'>=</span> <span class='id identifier rubyid_drawing'>drawing</span><span class='period'>.</span><span class='id identifier rubyid_get_multiline_type_metrics'>get_multiline_type_metrics</span><span class='lparen'>(</span><span class='id identifier rubyid_tmp_image'>tmp_image</span><span class='comma'>,</span> <span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_metrics'>metrics</span><span class='period'>.</span><span class='id identifier rubyid_width'>width</span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_width'>width</span>
@@ -582,7 +602,7 @@ split, or <code>false</code> if it does not.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 18 16:58:57 2018 by
+  Generated on Thu Jan 18 17:57:49 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.12 (ruby-2.3.0).
 </div>

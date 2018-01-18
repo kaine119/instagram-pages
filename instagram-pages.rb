@@ -43,7 +43,7 @@ module InstagramPages
     class TextSeries
         # @param body [String] the whole body text, without breaks or newlines
         # @param middle_byline [String] the byline between images
-        # @param byline [String] the byline at the very end of the series
+        # @param end_byline [String] the byline at the very end of the series
         # @param image_width [FixNum] the width of the image, in pixels
         # @param margin [FixNum] text margin from left, in pixels
         def initialize(body, middle_byline, end_byline, image_width, margin, font_family, font_size)
